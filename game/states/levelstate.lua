@@ -117,8 +117,25 @@ function LevelState:update(dt)
     end
 
 	-- Update all entities
-    for _, value in ipairs(Entities) do
-		value:update(dt)
+    for i = #Entities, 1, -1 do
+        local entity = Entities[i]
+        entity:update(dt)
+
+        -- Check if the snowflake is marked for deletion
+        if entity.isDeleted then
+            -- Remove from active snowflakes
+            for j, snowflake in ipairs(self.activeSnowflakes) do
+                if snowflake == entity then
+                    table.remove(self.activeSnowflakes, j)
+                    break
+                end
+            end
+
+            -- Remove from entities
+            table.remove(Entities, i)
+
+            print("deleted snowflake")
+        end
     end
 
 	self:updateDeathZones()

@@ -7,6 +7,7 @@ function Snowflake:initialize(x, y, spriteWidth, spriteHeight, animations, spawn
 	
 	self.spawnTime = spawnTime
 	self.fallSpeed = fallSpeed
+	self.isDeleted = false
 
 end
 
@@ -27,7 +28,7 @@ function Snowflake.generate(frequency, duration)
 		local fallSpeed = math.random(8, 20) -- these numbers are guesses
 
 		local animations = {
-			default = Animation:new("default", 1, 2, 5, spriteWidth, spriteHeight, 0.5, true),
+			default = Animation:new("default", 1, 5, 5, spriteWidth, spriteHeight, 0.5, true),
 		}
 
         table.insert(snowflakes, Snowflake(x, y, spriteWidth, spriteHeight, animations, spawnTime, fallSpeed))
@@ -45,6 +46,11 @@ function Snowflake:update(dt)
 
 	-- move down at fallSpeed
 	self.y = self.y + self.fallSpeed * dt
+
+	-- delete if off the bottom of the screen
+	if self.y > 150 then
+		self.isDeleted = true
+	end
 end
 
 function Snowflake:draw()
