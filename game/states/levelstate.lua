@@ -82,6 +82,7 @@ function LevelState:draw()
     love.graphics.draw(Bg)
 	--self.map:draw(0, 0, ScalingFactor, ScalingFactor)
 	Map:drawLayer(Map.layers["ground"])
+	Map:drawLayer(Map.layers["snow"])
 
     -- Draw all entities
     for _, value in ipairs(Entities) do
