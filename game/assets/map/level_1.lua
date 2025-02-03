@@ -10,7 +10,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 6,
-  nextobjectid = 9,
+  nextobjectid = 12,
   properties = {},
   tilesets = {
     {
@@ -113,6 +113,21 @@ return {
           }
         },
         {
+          id = 10,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 20.4619,
+          y = 7.95471,
+          width = 134.776,
+          height = 7.75623,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
           id = 3,
           name = "",
           type = "",
@@ -143,6 +158,21 @@ return {
           }
         },
         {
+          id = 9,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 58.0745,
+          y = -8.68775,
+          width = 15.8697,
+          height = 89.1503,
+          rotation = 44.9995,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
           id = 5,
           name = "",
           type = "",
@@ -151,6 +181,21 @@ return {
           y = 103.984,
           width = 15.8697,
           height = 24.7233,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 11,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 103.953,
+          y = 7.59208,
+          width = 15.8697,
+          height = 16.2373,
           rotation = 0,
           visible = true,
           properties = {

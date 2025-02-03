@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="9">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="12">
  <editorsettings>
   <export target="level_1.lua" format="lua"/>
  </editorsettings>
@@ -34,6 +34,11 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
+  <object id="10" x="20.4619" y="7.95471" width="134.776" height="7.75623">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="3" x="144.461" y="-6.06782" width="15.8697" height="149.595">
    <properties>
     <property name="collidable" type="bool" value="true"/>
@@ -44,7 +49,17 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
+  <object id="9" x="58.0745" y="-8.68775" width="15.8697" height="89.1503" rotation="44.9995">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="5" x="95.6848" y="103.984" width="15.8697" height="24.7233">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="11" x="103.953" y="7.59208" width="15.8697" height="16.2373">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
