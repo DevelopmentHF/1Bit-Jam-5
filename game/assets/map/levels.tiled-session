@@ -1,0 +1,57 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "level_1.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "/Users/henryfielding/Documents/GitHub/agwan/game/assets/map/level_4.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 4.904374999999999,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 80.13253472664715,
+                "y": 72.18045112781955
+            }
+        },
+        "level_1.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 4.5958,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 84.64249967361503,
+                "y": 73.76300100091389
+            }
+        },
+        "level_1.tmx#spritesheet": {
+            "scaleInDock": 4.17
+        }
+    },
+    "last.exportedFilePath": "/Users/henryfielding/Documents/GitHub/1Bit-Jam-5/game/assets/map",
+    "last.imagePath": "/Users/henryfielding/Documents/GitHub/1Bit-Jam-5/game/assets",
+    "map.height": 18,
+    "map.lastUsedExportFilter": "Lua files (*.lua)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "map.width": 20,
+    "openFiles": [
+        "level_1.tmx"
+    ],
+    "project": "levels.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "level_1.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 8,
+        "width": 8
+    }
+}

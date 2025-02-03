@@ -18,7 +18,7 @@ function love.load()
 	love.mouse.setCursor(cursor)
 
 	-- music
-	local music = love.audio.newSource("assets/sfx/HerdingPidgeons.mp3", "stream")
+	local music = love.audio.newSource("assets/sfx/music.mp3", "stream")
 	music:play()
 	music:setLooping(true)
 	music:setVolume(0.7)
@@ -47,5 +47,9 @@ end
 function love.keypressed(key)
     if key == "escape" then
         love.event.quit()  -- Close the game
+    end
+
+	if stateManager.currentState.player then
+        stateManager.currentState.player:keypressed(key)
     end
 end
