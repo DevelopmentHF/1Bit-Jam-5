@@ -24,7 +24,7 @@ function Snowflake.generate(frequency, duration, world)
         local x = math.random(0, 160)
         local y = -math.random(10, 50) -- starts off screen
         local startFrame, endFrame = 1, 1 -- no anims as of yet
-        local spriteRow, spriteWidth, spriteHeight = 5, 8, 8
+        local spriteRow, spriteWidth, spriteHeight = 5, 7, 7
         local animationDuration = 0.5
 		local fallSpeed = math.random(8, 20) -- these numbers are guesses
 

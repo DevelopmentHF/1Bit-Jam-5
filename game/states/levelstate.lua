@@ -93,8 +93,8 @@ function LevelState:updateDeathZones()
     -- Add snowflakes' bounding boxes to the death zones
     for _, snowflake in ipairs(self.activeSnowflakes) do
         table.insert(DeathZones, {
-            x = snowflake.x,
-            y = snowflake.y,
+            x = snowflake.x - snowflake.spriteWidth/2,
+            y = snowflake.y - snowflake.spriteHeight/2,
             width = snowflake.spriteWidth,
             height = snowflake.spriteHeight
         })
