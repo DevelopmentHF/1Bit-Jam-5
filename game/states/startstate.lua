@@ -18,7 +18,7 @@ end
 function StartState:update(dt)
     -- Press any key to start the game
     if love.keyboard.isDown("space") then
-        stateManager:switch(LevelState:new(2))
+        stateManager:switch(LevelState:new(1))
     end
 
 	self.title:update(dt)
@@ -37,5 +37,7 @@ function StartState:draw()
 
 	self.title:draw()
     love.graphics.printf("Press [Space] to Start", Font, 0, love.graphics.getHeight() - (love.graphics.getHeight() / 4), love.graphics.getWidth(), "center")
+
+	love.graphics.printf("Made with <3", Font, 0, love.graphics.getHeight() - 14, love.graphics.getWidth() - Font:getWidth("Made with <3"))
 
 end

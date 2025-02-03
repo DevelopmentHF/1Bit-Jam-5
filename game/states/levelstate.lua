@@ -1,6 +1,7 @@
 require("states.endstate")
 require("core.player")
 require("core.snowflake")
+require("core.cloud")
 
 local STI = require("sti")
 
@@ -65,6 +66,19 @@ function LevelState:enter()
 		self.world
 	)
 
+	local cloudAnimations = {
+		default = Animation:new("default", 9, 12, 6, 8, 8, 0.3, true)
+	}
+	self.cloud = Cloud:new(
+		-16,
+		50, -- spawn off screen
+		8,
+		8,
+		cloudAnimations,
+		5, -- 5seconds until active
+		self.player
+	)
+
 	-- Set specific collision callbacks for player instance
     self.world:setCallbacks(
         function(a, b, collision) self.player:beginContact(a, b, collision) end,
@@ -93,6 +107,7 @@ function LevelState:enter()
 	
 	-- load player
 	table.insert(Entities, self.player)
+	table.insert(Entities, self.cloud)
 
 	-- generate initial snowflake data
 	self.pendingSnowflakes = Snowflake.generate(2, 5) -- test with 2 snowflakes per second?

@@ -25,6 +25,7 @@ function Player:initialize(x, y, spriteWidth, spriteHeight, animations, world)
 	self.maxJumps = 2
 
 	self.moved = false
+	self.lastMoveTime = 0
 
 	self.isDying = false
 	self.deathTimer = self.animations["death"].totalDuration
@@ -80,6 +81,10 @@ function Player:move(dt)
 	else
 		self:applyFriction(dt)
 	end
+
+	if self.xVel ~= 0 then
+        self.lastMoveTime = GameTime
+    end
 end
 
 function Player:applyGravity(dt)
@@ -206,6 +211,10 @@ function Player:jump(key)
 		self.jumpCount = self.jumpCount + 1
 		love.audio.newSource("assets/sfx/playerjump.wav", "static"):play()
 	end
+end
+
+function Player:secondsSinceLastMove()
+	return GameTime - self.lastMoveTime
 end
 
 function Player:keypressed(key)
