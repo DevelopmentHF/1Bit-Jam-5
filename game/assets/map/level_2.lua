@@ -9,8 +9,8 @@ return {
   height = 18,
   tilewidth = 8,
   tileheight = 8,
-  nextlayerid = 7,
-  nextobjectid = 19,
+  nextlayerid = 8,
+  nextobjectid = 23,
   properties = {},
   tilesets = {
     {
@@ -67,7 +67,7 @@ return {
         1, 1, 1, 1, 1, 1, 1, 1, 15, 0, 0, 0, 0, 0, 0, 0, 0, 17, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 14, 0, 3, 1, 1, 1, 4, 0, 0, 0, 0, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 14, 0, 3, 9, 10, 11, 4, 0, 0, 0, 0, 1, 1,
         1, 1, 1, 1, 1, 1, 14, 0, 0, 5, 1, 1, 1, 6, 0, 0, 0, 0, 1, 1,
         1, 1, 1, 1, 1, 14, 0, 0, 0, 0, 43, 43, 43, 0, 0, 0, 0, 18, 1, 1,
         1, 1, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1,
@@ -299,6 +299,35 @@ return {
           properties = {
             ["collidable"] = true
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 7,
+      name = "ice",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 19,
+          name = "ice",
+          type = "",
+          shape = "rectangle",
+          x = 72.2772,
+          y = 39.9705,
+          width = 39.4059,
+          height = 15.871,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },

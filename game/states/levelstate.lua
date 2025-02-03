@@ -32,6 +32,21 @@ function LevelState:enter()
 			self.spawnX = object.x
 			self.spawnY = object.y
 		end
+
+		-- icy regions
+		if object.name == "ice" then
+			local body = love.physics.newBody(self.world, object.x + object.width / 2, object.y + object.height / 2, "static")  -- Create static body
+
+            -- Create a fixture for the object
+            local shape = love.physics.newRectangleShape(object.width, object.height)
+            local fixture = love.physics.newFixture(body, shape)
+
+            -- marking it as a icey platform
+			fixture:setUserData({ ice = true, collidable = true, standingOn = false, })
+			object.fixture = fixture
+			fixture:setSensor(true)
+			print("created ice")
+		end
 	end
 
 	GameTime = 0

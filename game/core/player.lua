@@ -15,7 +15,8 @@ function Player:initialize(x, y, spriteWidth, spriteHeight, animations, world)
 	self.yVel = 0
 	self.maxSpeed = 100
 	self.acceleration = 4000 -- 200/4000 = 0.05s to speed up to max
-	self.friction = 3500
+	self.initialFriction = 3500
+	self.friction = self.initialFriction
 	self.gravity = 1500
 	self.jumpFactor = -250
 
@@ -119,6 +120,20 @@ function Player:beginContact(a, b, collision)
         fixture, otherFixture = b, a
     end
 
+	if otherFixture and otherFixture:getUserData() then
+        local object = otherFixture:getUserData()
+        if object and object.ice then
+            print("Player is on an icey platform. Reduce friction")
+            object.standingOn = true  
+			self.friction = 500	
+			-- for some reason with manually platform creation temp platform normals are inverted to regular
+			-- collidable objects straight from tiled
+			if ny < 0 then
+				self:land(collision)
+			end
+        end
+    end
+
     -- Check if the player lands on a "death" object
     if ny > 0 then
         self:land(collision)
@@ -176,6 +191,8 @@ function Player:endContact(a, b, collision)
 			self.grounded = false	
 		end
 	end
+
+	self.friction = self.initialFriction
 end
 
 function Player:jump(key)
