@@ -1,5 +1,6 @@
 require("states.endstate")
 require("core.player")
+require("core.snowflake")
 
 local STI = require("sti")
 
@@ -22,6 +23,8 @@ function LevelState:enter()
 			self.spawnY = object.y
 		end
 	end
+
+	GameTime = 0
 
 	self.player = Player:new(
 		self.spawnX,
@@ -63,11 +66,26 @@ function LevelState:enter()
 	
 	-- load player
 	table.insert(Entities, self.player)
+
+	-- generate initial snowflake data
+	self.pendingSnowflakes = Snowflake.generate(2, 60) -- test with 2 snowflakes per second?
+	print(self.pendingSnowflakes)
+	self.activeSnowflakes = {}
 end
 
 function LevelState:update(dt)
 	-- update world
 	self.world:update(dt)
+
+	GameTime = GameTime + dt
+
+    -- snowflakes from pending to active
+    while #self.pendingSnowflakes > 0 and self.pendingSnowflakes[1].spawnTime <= GameTime do
+        local snowflake = table.remove(self.pendingSnowflakes, 1)
+        table.insert(self.activeSnowflakes, snowflake)
+        table.insert(Entities, snowflake)
+		print("spaned snowflake")
+    end
 
 	-- Update all entities
     for _, value in ipairs(Entities) do
@@ -91,6 +109,12 @@ function LevelState:draw()
 
     love.graphics.pop()
 
+end
+
+function LevelState:reset()
+	-- reset snowflakes
+	self.activeSnowflakes = {}
+	self.pendingSnowflakes = Snowflake.generate(2, 60) -- test with 2 snowflakes per second?
 end
 
 function LevelState:exit()

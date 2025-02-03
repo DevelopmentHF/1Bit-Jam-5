@@ -155,6 +155,9 @@ function Player:respawn()
 	self.physics.body:setPosition(self.spawnX, self.spawnY)
 	self.physics.body:setLinearVelocity(0, 0)
 
+	GameTime = 0
+	-- also need to reset snowflakes
+
 	-- pause death anim
 	self.animation:gotoFrame(1) -- Restart the animation from the first frame
 	self.animation:pause()
