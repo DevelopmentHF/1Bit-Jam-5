@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="12">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="19">
  <editorsettings>
   <export target="level_2.lua" format="lua"/>
  </editorsettings>
@@ -10,20 +10,20 @@
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,10,0,0,0,0,0,0,5,6,0,0,13,1,1,
-1,1,1,1,1,10,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,1,1,10,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,1,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,0,0,0,0,0,3,4,0,0,0,0,0,0,0,0,0,1,1,
+1,1,1,1,1,1,1,1,11,0,0,0,0,0,0,0,0,13,1,1,
+1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,1,1,1,1,1,10,0,3,1,1,1,4,0,0,0,0,1,1,
+1,1,1,1,1,1,10,0,0,5,1,1,1,6,0,0,0,0,1,1,
+1,1,1,1,1,10,0,0,0,0,31,31,31,0,0,0,0,14,1,1,
+1,1,11,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1,1,1,
+1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,1,1,
+1,1,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,1,1,
+1,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,1,1,1,6,0,0,0,0,0,0,3,4,0,0,0,0,1,1,
+1,1,11,0,0,0,0,0,0,0,0,0,5,6,0,0,0,0,1,1,
 1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
-1,1,0,0,0,0,0,0,0,0,0,0,3,4,0,0,0,0,1,1,
-1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,
-1,1,12,0,0,0,0,0,0,0,0,0,1,1,0,0,0,14,1,1,
+1,1,12,0,0,0,15,15,15,15,15,15,0,0,15,15,15,14,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
@@ -71,24 +71,55 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="9" x="58.0745" y="-8.68775" width="15.8697" height="89.1503" rotation="44.9995">
+  <object id="9" x="53.2233" y="28.6392" width="15.8697" height="33.422" rotation="44.9995">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="5" x="96.7504" y="103.984" width="13.857" height="24.7233">
+  <object id="5" x="96.7504" y="96.2358" width="14.6726" height="15.4964">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="11" x="103.953" y="7.59208" width="15.8697" height="16.2373">
+  <object id="18" x="128.83" y="63.9586" width="18.0389" height="15.4964">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="13" x="14.5789" y="88.2837" width="32.8197" height="15.4964">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="16" x="7.8462" y="48.4818" width="32.8197" height="15.4964">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="17" x="54.9749" y="14.0263" width="8.46323" height="26.3875">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="15" x="72.0046" y="40.1649" width="39.5523" height="15.4964">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="4" name="level">
-  <object id="7" name="spawn" x="28.2369" y="119.793" width="1.63354" height="1.71076"/>
+  <object id="7" name="spawn" x="28.033" y="81.6638" width="1.63354" height="1.71076"/>
  </objectgroup>
- <objectgroup id="5" name="death"/>
+ <objectgroup color="#00ff00" id="5" name="death">
+  <object id="12" name="death" x="48.0652" y="124.694" width="88.1949" height="3.85525">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="14" name="death" x="79.3523" y="54.595" width="24.6305" height="5.63743">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

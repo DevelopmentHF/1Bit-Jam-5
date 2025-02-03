@@ -69,7 +69,7 @@ function LevelState:enter()
 	table.insert(Entities, self.player)
 
 	-- generate initial snowflake data
-	self.pendingSnowflakes = Snowflake.generate(2, 60) -- test with 2 snowflakes per second?
+	self.pendingSnowflakes = Snowflake.generate(2, 5) -- test with 2 snowflakes per second?
 	print(self.pendingSnowflakes)
 	self.activeSnowflakes = {}
 end

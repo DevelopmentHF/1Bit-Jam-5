@@ -5,7 +5,7 @@ function StateManager:initialize(initState)
     self.nextState = nil
     self.currentLevel = 1
     self.maxLevel = 2
-    self.transitionTime = 0.5  -- Duration of the transition (in seconds)
+    self.transitionTime = 1  -- Duration of the transition (in seconds)
     self.transitionAlpha = 0  -- The current alpha value for the transition
     self.transitioning = false  -- Flag to track whether a transition is happening
 end
