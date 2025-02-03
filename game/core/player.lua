@@ -2,8 +2,19 @@ require("core.entity")
 
 Player = Class('Player', Entity)
 
-function Player:initialize(x, y, startFrame, endFrame, spriteRow, spriteWidth, spriteHeight, animationDuration, world)
-	Entity.initialize(self, x, y, startFrame, endFrame, spriteRow, spriteWidth, spriteHeight, animationDuration)
+function Player:initialize(x, y, spriteWidth, spriteHeight, animations, world)
+	-- Debug: Print out the animations table
+    print("Animations table contents:")
+    for name, animation in pairs(animations) do
+        print("Animation name: " .. name)
+        -- Assuming the Animation class has a 'name' property
+        print("  - Name: " .. animation.name)
+        print("  - Start frame: " .. animation.startFrame)
+        print("  - End frame: " .. animation.endFrame)
+        print("  - Duration: " .. animation.duration)
+    end
+	self.animations = animations
+	Entity.initialize(self, x, y, spriteWidth, spriteHeight, animations)
 	
 	self.spawnX = x
 	self.spawnY = y
@@ -19,12 +30,13 @@ function Player:initialize(x, y, startFrame, endFrame, spriteRow, spriteWidth, s
 	self.jumpFactor = -250
 
 	self.grounded = false
+	self.jumpCount = 0
+	self.maxJumps = 2
 
 	self.moved = false
 
 	self.isDying = false
-	self.deathTimer = animationDuration * ((endFrame - startFrame) + 1)
-	self.animation:pauseAtStart()
+	self.deathTimer = self.animations["death"].totalDuration
 
 	self.physics = {}
 	self.physics.body = love.physics.newBody(world, self.x, self.y, "dynamic")
@@ -121,11 +133,6 @@ function Player:beginContact(a, b, collision)
     if ny > 0 then
         self:land(collision)
     end
-	
-	--local userData = fixture:getUserData()
-	--if userData.snowflake then
-		--print("collided with snowflake")
-	--end
 end
 
 -- check whether the player is within a death bounded area 
@@ -145,7 +152,7 @@ end
 function Player:die()
 	if not self.isDying then
 		self.isDying = true
-		self.animation:resume()
+		Entity.swapAnimation(self, "death")
 		love.audio.newSource("assets/sfx/hitHurt.wav", "static"):play()
 	end
 end
@@ -164,15 +171,13 @@ function Player:respawn()
 	GameTime = 0
 	-- also need to reset snowflakes
 
-	-- pause death anim
-	self.animation:gotoFrame(1) -- Restart the animation from the first frame
-	self.animation:pause()
 end
 
 function Player:land(collision)
 	self.currentGroundCollision = collision
 	self.yVel = 0
 	self.grounded = true
+	self.jumpCount = 0
 end
 
 function Player:endContact(a, b, collision)
@@ -184,15 +189,17 @@ function Player:endContact(a, b, collision)
 end
 
 function Player:jump(key)
-	if (key == "w" or key == "up") and self.grounded then
+	print(self.jumpCount)
+	if (key == "w" or key == "up") and self.jumpCount < self.maxJumps then
 		self.yVel = self.jumpFactor
 		self.grounded = false
+		self.jumpCount = self.jumpCount + 1
 		love.audio.newSource("assets/sfx/playerjump.wav", "static"):play()
 	end
 end
 
 function Player:keypressed(key)
-    if (key == "w" or key == "up") and self.grounded then
+    if (key == "w" or key == "up") and self.jumpCount < self.maxJumps then
         self:jump(key)
     end
 end

@@ -76,7 +76,7 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="5" x="95.6848" y="103.984" width="15.8697" height="24.7233">
+  <object id="5" x="96.7504" y="103.984" width="13.857" height="24.7233">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>

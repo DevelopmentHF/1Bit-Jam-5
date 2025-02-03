@@ -26,15 +26,16 @@ function LevelState:enter()
 
 	GameTime = 0
 
+	local playerAnimations = {
+		default = Animation:new("default", 1, 2, 8, TileWidth, TileHeight-2, 0.1, true),
+		death = Animation:new("death", 1, 8, 8, TileWidth, TileHeight-2, 0.1, false),
+	}
 	self.player = Player:new(
 		self.spawnX,
 		self.spawnY,
-		1,
-		8,
-		8,
 		TileWidth,
 		TileHeight-2,
-		0.05,
+		playerAnimations,
 		self.world
 	)
 
@@ -68,7 +69,7 @@ function LevelState:enter()
 	table.insert(Entities, self.player)
 
 	-- generate initial snowflake data
-	self.pendingSnowflakes = Snowflake.generate(2, 60, self.world) -- test with 2 snowflakes per second?
+	self.pendingSnowflakes = Snowflake.generate(2, 60) -- test with 2 snowflakes per second?
 	print(self.pendingSnowflakes)
 	self.activeSnowflakes = {}
 end
