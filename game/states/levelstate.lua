@@ -6,6 +6,13 @@ local STI = require("sti")
 
 LevelState = Class('LevelState', State)
 
+-- Since this is a 1bit jam, make everything either black or one of these colours.
+-- If we want something to be this colour, just love.graphics.setColor before drawing it.
+-- It will not change the colour of black
+AlternateColours = {
+	{198/255, 81/255, 151/255, 1},
+	{115/255, 190/255, 211/255, 1},
+}
 
 function LevelState:initialize(number)
 	self.number = number
@@ -151,7 +158,9 @@ end
 function LevelState:draw()
     love.graphics.push()
     love.graphics.scale(ScalingFactor, ScalingFactor)
+	love.graphics.setColor(AlternateColours[self.number])
     love.graphics.draw(Bg)
+	love.graphics.setColor(1, 1, 1, 1)
 	--self.map:draw(0, 0, ScalingFactor, ScalingFactor)
 	Map:drawLayer(Map.layers["ground"])
 	Map:drawLayer(Map.layers["snow"])

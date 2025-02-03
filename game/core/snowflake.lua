@@ -55,5 +55,7 @@ end
 
 function Snowflake:draw()
 	-- maybe draw a slightly larger version behind to act as an outline?
+	love.graphics.setColor(AlternateColours[stateManager.currentLevel])
 	Entity.draw(self)
+	love.graphics.setColor(1, 1, 1, 1)
 end

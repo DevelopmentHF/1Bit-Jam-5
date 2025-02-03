@@ -35,13 +35,14 @@
         },
         "level_2.tmx": {
             "expandedObjectLayers": [
+                5,
                 4
             ],
-            "scale": 4.904374999999999,
-            "selectedLayer": 4,
+            "scale": 5.05,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 78.29743851153307,
-                "y": 79.72473556773289
+                "x": 80.99009900990099,
+                "y": 77.82178217821783
             }
         },
         "level_2.tmx#spritesheet": {
