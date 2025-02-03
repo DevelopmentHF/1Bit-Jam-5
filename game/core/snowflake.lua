@@ -2,7 +2,7 @@ require("core.entity")
 
 Snowflake = Class('Snowflake', Entity)
 
-function Snowflake:initialize(x, y, startFrame, endFrame, spriteRow, spriteWidth, spriteHeight, animationDuration, spawnTime, fallSpeed)
+function Snowflake:initialize(x, y, startFrame, endFrame, spriteRow, spriteWidth, spriteHeight, animationDuration, world, spawnTime, fallSpeed)
 	Entity.initialize(self, x, y, startFrame, endFrame, spriteRow, spriteWidth, spriteHeight, animationDuration)
 	
 	self.spawnTime = spawnTime
@@ -15,7 +15,7 @@ end
 -- duration: int - how long level lasts for (seconds)
 --
 -- returns: list of snowflakes to be randomly spawned
-function Snowflake.generate(frequency, duration)
+function Snowflake.generate(frequency, duration, world)
 	local snowflakes = {}
     local numSnowflakes = frequency * duration
 
@@ -28,7 +28,7 @@ function Snowflake.generate(frequency, duration)
         local animationDuration = 0.5
 		local fallSpeed = math.random(8, 20) -- these numbers are guesses
 
-        table.insert(snowflakes, Snowflake(x, y, startFrame, endFrame, spriteRow, spriteWidth, spriteHeight, animationDuration, spawnTime, fallSpeed))
+        table.insert(snowflakes, Snowflake(x, y, startFrame, endFrame, spriteRow, spriteWidth, spriteHeight, animationDuration, world, spawnTime, fallSpeed))
 
     end
 

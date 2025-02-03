@@ -121,6 +121,11 @@ function Player:beginContact(a, b, collision)
     if ny > 0 then
         self:land(collision)
     end
+	
+	--local userData = fixture:getUserData()
+	--if userData.snowflake then
+		--print("collided with snowflake")
+	--end
 end
 
 -- check whether the player is within a death bounded area 
@@ -132,6 +137,7 @@ function Player:inDeathZone()
 			return true
 		end
 	end
+
 	return false -- Player is safe
 end
 

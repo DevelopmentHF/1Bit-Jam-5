@@ -68,9 +68,37 @@ function LevelState:enter()
 	table.insert(Entities, self.player)
 
 	-- generate initial snowflake data
-	self.pendingSnowflakes = Snowflake.generate(2, 60) -- test with 2 snowflakes per second?
+	self.pendingSnowflakes = Snowflake.generate(2, 60, self.world) -- test with 2 snowflakes per second?
 	print(self.pendingSnowflakes)
 	self.activeSnowflakes = {}
+end
+
+function LevelState:updateDeathZones()
+    -- Clear out old death zones for this cycle
+    DeathZones = {}
+
+    -- Add the original death zones from the Tiled map
+    for _, object in pairs(Map.objects) do
+        -- death zone
+        if object.name == "death" then
+            table.insert(DeathZones, {
+                x = object.x,
+                y = object.y,
+                width = object.width,
+                height = object.height
+            })
+        end
+    end
+
+    -- Add snowflakes' bounding boxes to the death zones
+    for _, snowflake in ipairs(self.activeSnowflakes) do
+        table.insert(DeathZones, {
+            x = snowflake.x,
+            y = snowflake.y,
+            width = snowflake.spriteWidth,
+            height = snowflake.spriteHeight
+        })
+    end
 end
 
 function LevelState:update(dt)
@@ -91,6 +119,8 @@ function LevelState:update(dt)
     for _, value in ipairs(Entities) do
 		value:update(dt)
     end
+
+	self:updateDeathZones()
 end
 
 
