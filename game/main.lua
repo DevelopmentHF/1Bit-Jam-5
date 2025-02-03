@@ -27,7 +27,7 @@ function love.load()
     UIElements = {}
 
     -- Background
-    Bg = love.graphics.newImage("assets/bg.png")
+    Bg = love.graphics.newImage("assets/bg_intro.png")
     Bg:setFilter("nearest", "nearest")
 
     -- Initialize the StateManager and switch to the start state

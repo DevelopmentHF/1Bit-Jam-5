@@ -22,6 +22,9 @@ function LevelState:enter()
 	Map = STI(string.format("assets/map/level_%d.lua", self.number), {"box2d"})
 	self.world = love.physics.newWorld(0, 0)
 
+	Bg = love.graphics.newImage(string.format("assets/bg_%d.png", self.number))
+    Bg:setFilter("nearest", "nearest")
+
 	-- load important object level details from Tiled	
 	for _, object in pairs(Map.objects) do
 		-- spawn point
