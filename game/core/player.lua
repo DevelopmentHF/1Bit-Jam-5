@@ -181,7 +181,9 @@ end
 function Player:jump(key)
 	print(self.jumpCount)
 	if (key == "w" or key == "up") and self.jumpCount < self.maxJumps then
-		Entity.swapAnimation(self, "jump")
+		if not self.isDying then
+			Entity.swapAnimation(self, "jump")
+		end
 		self.yVel = self.jumpFactor
 		self.grounded = false
 		self.jumpCount = self.jumpCount + 1
