@@ -1,7 +1,7 @@
 require("core.entity")
 
 Player = Class('Player', Entity)
-
+-- TODO: Add dashes and near misses
 function Player:initialize(x, y, spriteWidth, spriteHeight, animations, world)
 	self.animations = animations
 	Entity.initialize(self, x, y, spriteWidth, spriteHeight, animations)

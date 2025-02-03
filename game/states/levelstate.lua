@@ -139,6 +139,11 @@ function LevelState:update(dt)
     end
 
 	self:updateDeathZones()
+
+	-- check for the end of the level
+	if #self.activeSnowflakes == 0 and GameTime > 5 then
+		stateManager:switchToNextLevel()
+	end
 end
 
 
