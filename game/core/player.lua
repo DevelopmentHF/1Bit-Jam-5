@@ -3,16 +3,6 @@ require("core.entity")
 Player = Class('Player', Entity)
 
 function Player:initialize(x, y, spriteWidth, spriteHeight, animations, world)
-	-- Debug: Print out the animations table
-    print("Animations table contents:")
-    for name, animation in pairs(animations) do
-        print("Animation name: " .. name)
-        -- Assuming the Animation class has a 'name' property
-        print("  - Name: " .. animation.name)
-        print("  - Start frame: " .. animation.startFrame)
-        print("  - End frame: " .. animation.endFrame)
-        print("  - Duration: " .. animation.duration)
-    end
 	self.animations = animations
 	Entity.initialize(self, x, y, spriteWidth, spriteHeight, animations)
 	
@@ -164,7 +154,7 @@ function Player:respawn()
 	self.xVel = 0
 	self.yVel = 0
 	self.isDying = false
-	self.deathTimer = self.animationDuration * ((self.endFrame - self.startFrame) + 1)
+	self.deathTimer = self.animations["death"].totalDuration
 	self.physics.body:setPosition(self.spawnX, self.spawnY)
 	self.physics.body:setLinearVelocity(0, 0)
 
