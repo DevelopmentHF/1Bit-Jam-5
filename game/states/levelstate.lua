@@ -27,8 +27,9 @@ function LevelState:enter()
 	GameTime = 0
 
 	local playerAnimations = {
-		default = Animation:new("default", 1, 1, 8, TileWidth, TileHeight-2, 0.1, true),
+		default = Animation:new("default", 1, 12, 9, TileWidth, TileHeight-2, 0.3, true),
 		death = Animation:new("death", 1, 8, 8, TileWidth, TileHeight-2, 0.1, false),
+		jump = Animation:new("jump", 1, 2, 10, TileWidth, TileHeight-2, 0.1, false),
 	}
 	self.player = Player:new(
 		self.spawnX,
