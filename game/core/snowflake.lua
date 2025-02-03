@@ -46,5 +46,6 @@ function Snowflake:update(dt)
 end
 
 function Snowflake:draw()
+	-- maybe draw a slightly larger version behind to act as an outline?
 	Entity.draw(self)
 end

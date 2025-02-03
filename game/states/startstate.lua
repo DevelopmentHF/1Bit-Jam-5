@@ -25,7 +25,7 @@ function StartState:draw()
 	love.graphics.setColor(0, 0, 1, 1)
 	love.graphics.pop()
 
-    love.graphics.printf("quicklove", BigFont, 0, love.graphics.getHeight() / 2, love.graphics.getWidth(), "center")
+    love.graphics.printf("1-BitJam", BigFont, 0, love.graphics.getHeight() / 2, love.graphics.getWidth(), "center")
     love.graphics.printf("Press [Space] to Start", Font, 0, love.graphics.getHeight() - (love.graphics.getHeight() / 4), love.graphics.getWidth(), "center")
 
 end
