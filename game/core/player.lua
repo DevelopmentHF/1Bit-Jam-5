@@ -27,6 +27,12 @@ function Player:initialize(x, y, spriteWidth, spriteHeight, animations, world)
 	self.moved = false
 	self.lastMoveTime = 0
 
+	self.hasDashed = false
+	self.isDashing = false
+	self.dashSpeed = self.maxSpeed * 2.5
+	self.dashDuration = 0.1 -- Dash lasts? 
+	self.dashTimer = 0  -- Timer to track dash duration
+
 	self.isDying = false
 	self.deathTimer = self.animations["death"].totalDuration
 
@@ -52,6 +58,14 @@ function Player:update(dt)
 		self:syncPhysics()
 		self:applyGravity(dt)
 		self:move(dt)
+
+		if self.isDashing then
+			self.dashTimer = self.dashTimer - dt
+			if self.dashTimer <= 0 then
+				self.isDashing = false
+			end
+		end
+
 		if self:inDeathZone() then
 			self:die()
 		end
@@ -187,6 +201,7 @@ function Player:land(collision)
 	self.currentGroundCollision = collision
 	self.yVel = 0
 	self.grounded = true
+	self.hasDashed = false
 	self.jumpCount = 0
 end
 
@@ -213,6 +228,26 @@ function Player:jump(key)
 	end
 end
 
+function Player:dash()
+	if not self.hasDashed and not self.isGrounded then
+		print("Dashing")
+		self.hasDashed = true
+		self.isDashing = true
+		self.dashTimer = self.dashDuration
+
+		if love.keyboard.isDown("d", "right") then
+			self.xVel = self.dashSpeed
+		elseif love.keyboard.isDown("a", "left") then
+			self.xVel = -self.dashSpeed
+		else
+			self.yVel = self.jumpFactor  -- Vertical dash if no movement
+		end
+		
+		-- TODO: Change this to a unique dash sound
+		love.audio.newSource("assets/sfx/dash.wav", "static"):play()
+	end
+end
+
 function Player:secondsSinceLastMove()
 	return GameTime - self.lastMoveTime
 end
@@ -220,6 +255,8 @@ end
 function Player:keypressed(key)
     if (key == "w" or key == "up") and self.jumpCount < self.maxJumps then
         self:jump(key)
+	elseif (key == "space") and not self.hasDashed then
+		self:dash()
     end
 end
 
